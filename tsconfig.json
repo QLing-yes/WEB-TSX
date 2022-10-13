@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "ESNext",
+    "outDir": "./dist",
+    "declaration": true, /* 为发出的JavaScript文件生成 d.ts */
+    // "sourceMap": true, /* 为发出的JavaScript文件创建源映射文件 */
+    "inlineSourceMap": true, /* 在发出的JavaScript中包含源源映射文件。*/
+    "noImplicitAny": true, /*为隐含`任何`类型的表达式和声明启用错误报告  */
+    "experimentalDecorators": true, //启用实验性的装饰器
+    "emitDecoratorMetadata": true, //为源文件中的修饰声明的设计类型元数据
+  }
+}
