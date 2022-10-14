@@ -16,7 +16,7 @@ export function style(el: ShadowRoot, href: string) {
   el.appendChild(linkElem);
 }
 /** 创建简单元素类(建议implements cycleEl生命周期) */
-export function ConstructorEl({ Callback, StyleUrl, template }: ConstructorEl, extend?: CustomElementConstructor) {
+export function ConstructorEl({ callback, styleUrl, template }: ConstructorEl, extend?: CustomElementConstructor) {
   const ConstructorElement = class extends (extend || HTMLElement) {
     constructor() {
       super();
@@ -24,10 +24,10 @@ export function ConstructorEl({ Callback, StyleUrl, template }: ConstructorEl, e
       const el = Content.cloneNode(true) as HTMLElement;
       const shadowRoot: ShadowRoot = this.attachShadow({ mode: 'open' });
 
-      if (StyleUrl) style(shadowRoot, StyleUrl);
-      Callback?.(shadowRoot);
-
+      if (styleUrl) style(shadowRoot, styleUrl);
       shadowRoot.appendChild(el);
+
+      callback?.(shadowRoot);
     }
   }
 
@@ -38,9 +38,9 @@ export type ConstructorEl = {
   /** 模板组件字符串 */
   template: string
   /** css地址 */
-  StyleUrl?: string
+  styleUrl?: string
   /** 创建时回调 */
-  Callback?: (ShadowRoot: ShadowRoot) => void
+  callback?: (ShadowRoot: ShadowRoot) => void
 }
 /** 组件生命周期 (class implements interface) */
 export interface cycleEl {
