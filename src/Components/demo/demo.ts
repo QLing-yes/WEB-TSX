@@ -16,10 +16,10 @@ function Script(Shadow: ShadowRoot) {
   const title = Shadow.querySelector(".title");
 
   const content = ref({ num: 0 }, numEl);
+  numEl()
   function numEl() {
     idNum.innerHTML = raw`<span>${content.num}</span>`
   }
-  content.num++
   title.addEventListener('click', () => { content.num++ })
 }
 
@@ -30,8 +30,11 @@ const ElClass = ConstructorEl({
 // export default ElClass;
 //添加生命周期
 export default class extends ElClass implements cycleEl {
+  static get observedAttributes() { return ['myprop']; }
   connectedCallback() { };
   disconnectedCallback() { };
   adoptedCallback() { };
-  attributeChangedCallback(name: any, oldV: any, newV: any) { };
+  attributeChangedCallback(name: any, oldV: any, newV: any) {
+    console.log(name,oldV,newV);
+  };
 }
