@@ -1,12 +1,12 @@
 export const raw = String.raw;
 
-/** 字符串模板转 template元素
+/** 字符串模板转Node元素
  * @param strEl html模板
  */
 export function h(strEl: string) {
   const template = document.createElement("template");
   template.innerHTML = strEl;
-  return template.content;
+  return template.content.cloneNode(true);
 }
 /** 添加css文件(直接模板里link标签也行的) */
 export function style(el: ShadowRoot, href: string) {
@@ -15,22 +15,27 @@ export function style(el: ShadowRoot, href: string) {
   linkElem.setAttribute('href', href);
   el.appendChild(linkElem);
 }
+
 /** 创建简单元素类(建议implements cycleEl生命周期) */
 export function ConstructorEl({ callback, styleUrl, template }: ConstructorEl, extend?: CustomElementConstructor) {
   const ConstructorElement = class extends (extend || HTMLElement) {
+    public _shadow: ShadowRoot
     constructor() {
       super();
-      const Content = h(template);
-      const el = Content.cloneNode(true) as HTMLElement;
-      const shadowRoot: ShadowRoot = this.attachShadow({ mode: 'open' });
+      const el = h(template);
+      this._shadow = this.attachShadow({ mode: 'open' });
 
-      if (styleUrl) style(shadowRoot, styleUrl);
-      shadowRoot.appendChild(el);
+      if (styleUrl) style(this.shadowRoot, styleUrl);
+      this.shadowRoot.appendChild(el);
 
-      callback?.(shadowRoot);
+      callback?.(this.shadowRoot);
+    }
+    /** 查询shadow父级直接子节" */
+    _queryHostSub(CSSselector?: string) {
+      const { host } = this._shadow;
+      return host.querySelectorAll(`${host.localName} > ${CSSselector}`);
     }
   }
-
   return ConstructorElement;
 }
 
