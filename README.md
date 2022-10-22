@@ -1,5 +1,5 @@
 # WEB-TSX
-- 原生web类似TSX写法
+- 原生webComponents类似TSX写法
 - VSCode插件推荐"lit-html"(模板语法高亮和提示)
 ```typescript
 import { raw, ConstructorEl } from "../../tools/Components.js";
