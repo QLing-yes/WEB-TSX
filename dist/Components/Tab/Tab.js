@@ -1,0 +1,33 @@
+import { raw, ConstructorEl, h } from "../../tools/Components.js";
+const { href } = new URL('./', import.meta.url);
+const template = raw `
+<link rel="stylesheet" href="${href}Tab.css" />
+<div class="Tab"></div>
+`;
+const ElClass = ConstructorEl({ template }, HTMLElement);
+const TabList = ['推荐', '排行榜', '歌单', '主播电台', '歌手', '新碟上架'];
+export default class extends ElClass {
+    constructor() {
+        super();
+        const tab = this._shadow.querySelector(".Tab");
+        TabList.forEach((v, i) => {
+            tab.appendChild(this.but('but' + i, v));
+        });
+    }
+    but(id, txt) {
+        return h(raw `
+        <input ${id == "but0" ? 'checked' : ''} id="${id}" name="but" type="radio">
+        <label for="${id}">${txt}</label>
+        `);
+    }
+    static get observedAttributes() { return ['']; }
+    connectedCallback() { }
+    ;
+    disconnectedCallback() { }
+    ;
+    adoptedCallback() { }
+    ;
+    attributeChangedCallback(name, oldV, newV) { }
+    ;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGFiLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL0NvbXBvbmVudHMvVGFiL1RhYi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsR0FBRyxFQUFFLGFBQWEsRUFBRSxDQUFDLEVBQUUsTUFBTSwyQkFBMkIsQ0FBQztBQUlsRSxNQUFNLEVBQUUsSUFBSSxFQUFFLEdBQUcsSUFBSSxHQUFHLENBQUMsSUFBSSxFQUFFLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUE7QUFFL0MsTUFBTSxRQUFRLEdBQUcsR0FBRyxDQUFBOytCQUNXLElBQUk7O0NBRWxDLENBQUE7QUFDRCxNQUFNLE9BQU8sR0FBRyxhQUFhLENBQUMsRUFBRSxRQUFRLEVBQUUsRUFBRSxXQUFXLENBQUMsQ0FBQTtBQUV4RCxNQUFNLE9BQU8sR0FBRyxDQUFDLElBQUksRUFBRSxLQUFLLEVBQUUsSUFBSSxFQUFFLE1BQU0sRUFBRSxJQUFJLEVBQUUsTUFBTSxDQUFDLENBQUE7QUFFekQsTUFBTSxDQUFDLE9BQU8sTUFBTyxTQUFRLE9BQU87SUFDaEM7UUFDSSxLQUFLLEVBQUUsQ0FBQztRQUNSLE1BQU0sR0FBRyxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxDQUFBO1FBQzlDLE9BQU8sQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLEVBQUU7WUFDckIsR0FBRyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssR0FBRyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQTtRQUMzQyxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFDRCxHQUFHLENBQUMsRUFBVSxFQUFFLEdBQVc7UUFDdkIsT0FBTyxDQUFDLENBQUMsR0FBRyxDQUFBO2lCQUNILEVBQUUsSUFBSSxNQUFNLENBQUUsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUMsRUFBRSxRQUFRLEVBQUU7c0JBQ25DLEVBQUUsS0FBSyxHQUFHO1NBQ3ZCLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFFRCxNQUFNLEtBQUssa0JBQWtCLEtBQUssT0FBTyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNoRCxpQkFBaUIsS0FBSyxDQUFDO0lBQUEsQ0FBQztJQUN4QixvQkFBb0IsS0FBSyxDQUFDO0lBQUEsQ0FBQztJQUMzQixlQUFlLEtBQUssQ0FBQztJQUFBLENBQUM7SUFDdEIsd0JBQXdCLENBQUMsSUFBUyxFQUFFLElBQVMsRUFBRSxJQUFTLElBQUksQ0FBQztJQUFBLENBQUM7Q0FDakUifQ==

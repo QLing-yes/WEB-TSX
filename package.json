@@ -1,0 +1,21 @@
+{
+  "name": "web-tsx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css":"sass --watch --style compressed ./src:./dist",
+    "dev":"tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QLing-yes/WEB-TSX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QLing-yes/WEB-TSX/issues"
+  },
+  "homepage": "https://github.com/QLing-yes/WEB-TSX#readme"
+}

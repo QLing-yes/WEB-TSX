@@ -1,0 +1,27 @@
+.Tab {
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  background-color: #c20c0c;
+  border-bottom: 1px solid #ff6161;
+  & > input[type='radio'] {
+    display: none;
+  }
+  & > label {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 15px;
+    font-size: 0.8em;
+    padding: 2px 10px 2px 10px;
+    margin-left: 4%;
+    user-select: none;
+  }
+  & > input:checked + label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+div,
+span,
+label {
+  display: flex;
+}

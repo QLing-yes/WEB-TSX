@@ -1,0 +1,17 @@
+.CardLogin {
+  font-size: 0.9em;
+  color: #666666;
+  background: linear-gradient(0deg, #e9e9e9, #ffffff);
+  padding: 15px;
+  flex-direction: column;
+  line-height: 150%;
+  & > .but {
+    margin: 0 auto;
+    background-color: #d9131a;
+    cursor: pointer;
+    color: #fff;
+    padding: 6px 20px 6px 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+}

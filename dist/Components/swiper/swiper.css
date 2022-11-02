@@ -1,0 +1,1 @@
+.swiper{contain:strict;width:100%;height:100%;position:relative;--current: 0}.item{contain:strict;width:100%;height:100%;position:absolute;transform:translateX(calc(var(--n) * 100% + var(--current) * 100%));transition:all .5s}div,span{display:flex}/*# sourceMappingURL=swiper.css.map */

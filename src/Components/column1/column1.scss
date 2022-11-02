@@ -1,0 +1,16 @@
+.option {
+  font-size: 0.9em;
+  color: #666;
+  cursor: pointer;
+  margin-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid rgb(205, 205, 205);
+}
+.col {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.col:nth-of-type(1) {
+  margin-top: 20px;
+}

@@ -1,0 +1,78 @@
+.nav_but{
+  height: 100%;
+}
+.nav {
+  height: 70px;
+  color: #ccc;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(36, 36, 36, 0.980);
+  & > div {
+    height: 100%;
+    align-items: center;
+  }
+  & > div:not(.C) {
+    flex: 1;
+  }
+  & > .R {
+    margin-left: 20px;
+    --subH: 30px;
+    justify-content: center;
+  }
+  & > .L {
+    flex-direction: row-reverse;
+  }
+}
+.login {
+  font-size: 0.9em !important;
+  border: 1px solid rgba(255, 255, 255, 0) !important;
+}
+.but:hover {
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+.but {
+  padding: 0px 10px 0px 10px;
+  max-height: var(--subH);
+  min-height: var(--subH);
+  align-items: center;
+  margin-left: 10px;
+  border-radius: var(--subH);
+  border: 1px solid #ccc;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.logo {
+  width: 200px;
+  height: 100%;
+  align-items: center;
+  background: url('/image/topbar.png') no-repeat;
+  background-position: 10px 0px;
+}
+.input {
+  height: var(--subH);
+  width: 22%;
+  min-width: 150px;
+  border-radius: var(--subH);
+  background-color: rgb(255, 255, 255);
+  contain: strict;
+  align-items: center;
+  & > .icon {
+    width: 22px;
+    height: 100%;
+    align-items: center;
+    margin-left: 5px;
+    background: url('/image/topbar.png') no-repeat;
+    background-position: -5px -100px;
+  }
+  & > input {
+    width: 90%;
+    height: 100%;
+    outline: none;
+    border: 0px;
+  }
+}
+div,
+span {
+  display: flex;
+}
