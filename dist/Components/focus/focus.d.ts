@@ -178,7 +178,7 @@ declare const ElClass: {
         ariaValueMin: string;
         ariaValueNow: string;
         ariaValueText: string;
-        animate(keyframes: Keyframe[] | PropertyIndexedKeyframes, options?: number | KeyframeAnimationOptions): Animation;
+        animate(keyframes: PropertyIndexedKeyframes | Keyframe[], options?: number | KeyframeAnimationOptions): Animation;
         getAnimations(options?: GetAnimationsOptions): Animation[];
         after(...nodes: (string | Node)[]): void;
         before(...nodes: (string | Node)[]): void;
