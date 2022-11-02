@@ -1,7 +1,8 @@
 # WEB-TSX
-- 原生webComponents类似TSX写法
+- webComponents类似TSX写法
 - VSCode插件推荐"lit-html"(模板语法高亮和提示)
 ```typescript
+//demo.ts
 import { raw, ConstructorEl } from "../../tools/Components.js";
 import type { cycleEl } from "../../tools/Components.js";
 import { ref } from "../../tools/tools.js";
@@ -15,29 +16,35 @@ const template = raw`
   </span>
   <div id="num"></div>
 `
-function Script(Shadow: ShadowRoot) {
-  const idNum = Shadow.querySelector("#num");
-  const title = Shadow.querySelector(".title");
-
-  const content = ref({ num: 0 }, numEl);
-  function numEl() {
-    idNum.innerHTML = raw`<span>${content.num}</span>`
-  }
-  content.num++
-  title.addEventListener('click', () => { content.num++ })
-}
 
 const ElClass = ConstructorEl({
   template,
-  callback: Script
+  // callback: (Shadow: ShadowRoot)=> {}
 }, HTMLElement)
 // export default ElClass;
-//添加生命周期
 export default class extends ElClass implements cycleEl {
+  constructor() {
+    super();
+    const Shadow = this._shadow;
+    const idNum = Shadow.querySelector("#num");
+    const title = Shadow.querySelector(".title");
+    //ref可创建深(浅)对象代理
+    const content = ref({ num: 0 }, numEl);
+    numEl()
+    function numEl() {
+      idNum.innerHTML = raw`<span>${content.num}</span>`
+    }
+    title.addEventListener('click', () => { content.num++ })
+    // 查询当前组件的父级下元素节点
+    // this._queryHostSub(CSSselector?: string)
+  }
+  //生命周期
+  static get observedAttributes() { return ['myprop']; }
   connectedCallback() { };
   disconnectedCallback() { };
   adoptedCallback() { };
-  attributeChangedCallback(name: any, oldV: any, newV: any) { };
+  attributeChangedCallback(name: any, oldV: any, newV: any) {
+    console.log(name, oldV, newV);
+  };
 }
-
 ```

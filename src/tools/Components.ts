@@ -30,7 +30,7 @@ export function ConstructorEl({ callback, styleUrl, template }: ConstructorEl, e
 
       callback?.(this.shadowRoot);
     }
-    /** 查询shadow父级直接子节" */
+    /** 查询shadow父级直接子节 */
     _queryHostSub(CSSselector?: string) {
       const { host } = this._shadow;
       return host.querySelectorAll(`${host.localName} > ${CSSselector}`);
