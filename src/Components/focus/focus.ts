@@ -3,8 +3,10 @@ import type { cycleEl } from "../../tools/Components.js";
 import { ref } from "../../tools/tools.js";
 
 const { href, origin } = new URL('./', import.meta.url)
-const img = origin+'/demo/image/';
+const img = origin+'/WEB-TSX/image/';
 console.log(href);
+console.log(img+'1.jpg');
+
 
 const template = raw`
 <link rel="stylesheet" href="${href}focus.css" />

@@ -3,7 +3,7 @@ import type { cycleEl } from "../../tools/Components.js";
 import { ref } from "../../tools/tools.js";
 
 const { href, origin } = new URL('./', import.meta.url)
-const img = origin + '/demo/image/'
+const img = origin + '/WEB-TSX/image/'
 const template = raw`
 <link rel="stylesheet" href="${href}card3.css" />
 <div class="Album">
