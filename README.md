@@ -1,6 +1,7 @@
 # WEB-TSX
 - webComponents类似TSX写法
 - VSCode插件推荐"lit-html"(模板语法高亮和提示)
+- demo:  https://qling-yes.github.io/WEB-TSX/
 ```typescript
 //demo.ts
 import { raw, ConstructorEl } from "../../tools/Components.js";
