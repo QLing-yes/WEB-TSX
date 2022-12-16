@@ -4,16 +4,17 @@ const viewTask = new Map<Function, Function>();
 
 //240毫秒更新一帧
 $Timing(updateView, 240, true);
-// 更新可更新的视图
+/** 更新可更新的视图 */ 
 function updateView() {
     viewTask.forEach((v, k) => {
-        v();
+        queueMicrotask(v as VoidFunction);
         viewTask.delete(k);
     })
 }
+
 /** 响应式
  * @param obj 目标对象
- * @param callback 响应回调
+ * @param callback 响应回调(不要有除更新视图以外的逻辑)
  * @param deep 深响应(默认false)
  */
 export default function ref<T extends object, K extends keyof T>(obj: T, callback: (o: T, k: K) => void, deep = false) {
