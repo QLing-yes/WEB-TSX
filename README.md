@@ -1,5 +1,6 @@
 # WEB-TSX
 - webComponents类似TSX写法
+- TSX写法，单文件组件，响应式状态
 - VSCode插件推荐"lit-html"(模板语法高亮和提示)
 - demo:  https://qling-yes.github.io/WEB-TSX/
 ![image](https://user-images.githubusercontent.com/78684352/200495371-87aa4313-ce31-4fd3-8ba0-196e52e9fdec.png)
