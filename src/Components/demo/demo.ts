@@ -1,6 +1,6 @@
 import { raw, ConstructorEl } from "../../tools/Components.js";
 import type { cycleEl } from "../../tools/Components.js";
-import { ref } from "../../tools/tools.js";
+import ref from "../../tools/ref.js";
 
 const { href } = new URL('./', import.meta.url)
 
