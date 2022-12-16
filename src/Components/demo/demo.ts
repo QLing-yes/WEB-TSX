@@ -9,7 +9,9 @@ const template = raw`
   <span class="title">
     <slot name="title"></slot>
   </span>
-  <div id="num"></div>
+  <div id="num">
+    <span></span>
+  </div>
 `
 
 const ElClass = ConstructorEl({
@@ -21,13 +23,13 @@ export default class extends ElClass implements cycleEl {
   constructor() {
     super();
     const Shadow = this._shadow;
-    const idNum = Shadow.querySelector("#num");
+    const idNum = Shadow.querySelector("#num > span");
     const title = Shadow.querySelector(".title");
     //ref可创建深(浅)对象代理
     const content = ref({ num: 0 }, numEl);
     numEl()
     function numEl() {
-      idNum.innerHTML = raw`<span>${content.num}</span>`
+      idNum.textContent = `${content.num}`
     }
     title.addEventListener('click', () => { content.num++ })
     // 查询当前组件的父级下元素节点

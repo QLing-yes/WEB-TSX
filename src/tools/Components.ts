@@ -25,10 +25,10 @@ export function ConstructorEl({ callback, styleUrl, template }: ConstructorEl, e
       const el = h(template);
       this._shadow = this.attachShadow({ mode: 'open' });
 
-      if (styleUrl) style(this.shadowRoot, styleUrl);
-      this.shadowRoot.appendChild(el);
+      if (styleUrl) style(this.shadowRoot!, styleUrl);
+      this.shadowRoot!.appendChild(el);
 
-      callback?.(this.shadowRoot);
+      callback?.(this.shadowRoot!);
     }
     /** 查询shadow父级直接子节 */
     _queryHostSub(CSSselector?: string) {
